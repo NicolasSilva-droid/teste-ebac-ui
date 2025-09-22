@@ -19,7 +19,7 @@ describe('Funcionalidade: Cadastro', () => {
         cy.get('.woocommerce-message').should('exist')
     });
 
-    it.only('Deve completar um cadastro com sucesso - Usando variáveis', () => {
+    it('Deve completar um cadastro com sucesso - Usando variáveis', () => {
         var email = faker.internet.email()
         var nome = faker.person.firstName()
         var sobrenome = faker.person.lastName()
