@@ -34,10 +34,10 @@ describe('Funcionalidade Login', () => {
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, nicolas.teste (não é nicolas.teste? Sair)')
     });
 
-    it('Deve fazer login com sucesso - Usando Fixture', () => {
+    it.only('Deve fazer login com sucesso - Usando Fixture', () => {
         cy.fixture('perfil').then(dados => {
             cy.get('#username').type(dados.usuario)
-        cy.get('#password').type(dados.senha)
+        cy.get('#password').type(dados.senha , {log: false})
         cy.get('.woocommerce-form > .button').click()
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, nicolas.teste (não é nicolas.teste? Sair)')
         })
