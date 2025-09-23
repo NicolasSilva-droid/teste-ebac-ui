@@ -23,8 +23,8 @@ describe('Funcionalidade Login', () => {
         cy.get('#username').type('sandro@teste.com.br')
         cy.get('#password').type('teste123')
         cy.get('.woocommerce-form > .button').click()
-        cy.get('  .woocommerce-error').should('contain' , 'Endereço de e-mail desconhecido.')
-        cy.get('  .woocommerce-error').should('exist')
+        cy.get('.woocommerce-error').should('contain' , 'Endereço de e-mail desconhecido.')
+        cy.get('.woocommerce-error').should('exist')
     });
 
     it('Deve fazer login com sucesso - Usando massa de dados', () => {
@@ -34,14 +34,20 @@ describe('Funcionalidade Login', () => {
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, nicolas.teste (não é nicolas.teste? Sair)')
     });
 
-    it.only('Deve fazer login com sucesso - Usando Fixture', () => {
+    it('Deve fazer login com sucesso - Usando Fixture', () => {
         cy.fixture('perfil').then(dados => {
-            cy.get('#username').type(dados.usuario)
+        cy.get('#username').type(dados.usuario)
         cy.get('#password').type(dados.senha , {log: false})
         cy.get('.woocommerce-form > .button').click()
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, nicolas.teste (não é nicolas.teste? Sair)')
         })
     
     });
+
+    it.only('Deve fazer login com sucesso - usando Comandos customizados', () => {
+        cy.login('nicolas.teste@teste.com.br' , 'teste123')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, nicolas.teste (não é nicolas.teste? Sair)')
+
+        });
 
 })
