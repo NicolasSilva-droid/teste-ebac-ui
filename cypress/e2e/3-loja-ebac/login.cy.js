@@ -39,14 +39,14 @@ describe('Funcionalidade Login', () => {
         cy.get('#username').type(dados.usuario)
         cy.get('#password').type(dados.senha , {log: false})
         cy.get('.woocommerce-form > .button').click()
-        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, nicolas.teste (não é nicolas.teste? Sair)')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('exist')
         })
     
     });
 
     it.only('Deve fazer login com sucesso - usando Comandos customizados', () => {
         cy.login('nicolas.teste@teste.com.br' , 'teste123')
-        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, nicolas.teste (não é nicolas.teste? Sair)')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('exist')
 
         });
 

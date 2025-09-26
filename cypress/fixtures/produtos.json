@@ -1,0 +1,20 @@
+[
+    {
+        "nomeProduto": "Josie Yoga Jacket",
+        "tamanho": "M",
+        "cor": "Black",
+        "quantidade": 5
+    },
+    {
+        "nomeProduto": "Stellar Solar Jacket",
+        "tamanho": "S",
+        "cor": "Red",
+        "quantidade": 3
+    },
+    {
+        "nomeProduto": "Ingrid Running Jacket",
+        "tamanho": "L",
+        "cor": "White",
+        "quantidade": 4
+    }
+]
